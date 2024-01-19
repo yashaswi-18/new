@@ -1,0 +1,234 @@
+/**************** Loop *******************/
+
+/*1.Print 10 to 1 numbers*/
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+   for(int i=10;i>=1;i--)
+   {
+       cout<<i<<" ";
+   }
+}
+
+
+/*2.sum of first n even numbers*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int sum,n;
+    cout<<"Enter n numbers :- ";
+    cin>>n;
+   for(int i=1;i<=n;i++)
+   {
+       if(i%2==0)
+       {
+        sum += i;
+       }
+       
+   }
+   cout<<sum;
+
+   return 0;
+}
+
+/*3. print factorial of number */
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int fact =1,n;
+    cout<<"Enter the number";
+    cin>>n;
+    for(int i=1;i<=n;i++)
+    {
+        fact=fact*i;
+    }
+    cout<<fact;
+   return 0;
+}
+
+/*4.Number perfectly dividing given number */
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cout<<"Enter any number";
+    cin>>n;
+    
+    
+        if(n%2==0)
+        {
+            cout<<"Number is perfectly divisible";
+        }
+        else
+        {
+            cout<<"Not perfectly divisible";
+        }
+    
+  
+   return 0;
+}
+
+/*5.Square roots of 1 to 9 numbers */
+#include <iostream>
+#include<math.h>
+
+using namespace std;
+
+int main()
+{
+    int n ,sr;
+    cout<<"Enter any number";
+    cin>>n;
+    
+    sr=sqrt(n);
+    cout<<"Square root is :- "<<sr;
+   
+   return 0;
+}
+
+
+/*6.Numbers not divisible by 2,3 ,5*/
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cout<<"Enter any number";
+    cin>>n;
+    
+    
+        if(n%2!=0  || n%3!=0 || n%5!=0)
+        {
+            cout<<"not divisible ";
+        }
+        else
+        {
+            cout<<"divible";
+        }
+
+   return 0;
+}
+
+
+/*7.Harmonic sequence and its sum */
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int i,n;
+    float s=0.0;
+    cout<<"Enter the term:-";
+    cin>>n;
+    for(i=1;i<=n;i++)
+    {
+        if(i<n)
+        {
+            cout<<"1/"<<i<<" + ";
+             s+=1/(float)i;
+        }
+        if(i==n)
+        {
+            cout<<"1/"<<i;
+            s+-1/(float)i;
+        }
+    }
+    cout<<"\nsum of series upto "<<n<<" terms:-"<<s<<endl;
+
+    return 0;
+}
+
+
+/*8.Airthmetic progression and its sum*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int i,n;
+    float s=0.0,a,d;
+    cout<<"Enter the value of a and d:-";
+    cin>>a>>d;
+    cout<<"Enter the term:-";
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        s=s+a;
+        a=a+d;
+    }
+    cout<<"\nsum of series upto "<<n<<" terms:-"<<s<<endl;
+
+    return 0;
+}
+
+
+/*9.Exponential series and its sum*/
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n,i,x=0;
+    float d=1,sum=0;
+    cout<<"Enter n ";
+    cin>>n;
+    cout<<"Enter x ";
+    cin>>x;
+   for(i=1;i<=n;i++)
+    {
+        d=d*x/i;
+        cout<<"\n Exponential series "<<d;
+        sum=sum+d;
+        
+       
+    }
+    cout<<"\n Exponential is "<<d<<"\n sum = "<<sum;
+    
+}
+
+
+/* 10.Sum of expanded geometric sequence*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int i,n;
+    float s=0,a,b;
+    cout<<"Enter the value of a and b :-";
+    cin>>a>>b;
+    cout<<"Enter the term:-";
+    cin>>n;
+    for(i=0;i<n;i++)
+    { 
+        s=s+a;
+        a=a*b;
+    }
+    cout<<"\nsum of geometric squence sum is :-"<<s<<endl;
+
+    return 0;
+}

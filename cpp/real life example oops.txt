@@ -1,0 +1,369 @@
+/*
+Library Management System:
+
+Problem Definition:
+
+Design a Book class with the following features:
+
+Attributes: title, author, ISBN, issuedStatus.
+Constructor: Initializes a book with title, author, and ISBN.
+The issuedStatus should be set to false initially.
+Destructor: Display a message saying "[Book Title] is being removed from the system".
+Method: issueBook(): Changes the issuedStatus to true.
+Method: returnBook(): Changes the issuedStatus to false.
+Demonstrate the usage of the Book class by creating multiple book objects,
+issuing some books, and returning them.
+
+book{
+    title:string
+    author:"";
+    ISBN:int;
+    issuedstatus:boolean
+    
+    constructor-Book(title,author,ISBN)
+      issuedstatus=false;
+      
+      
+    destructor-~book()
+    {
+        t<<"remmmoved"
+    }
+    
+    issuebook(){
+      issuesatuse=true;
+        
+    }
+    
+    returnBook()
+    {
+        issued status= false;
+    }
+*/
+
+#include <iostream>
+
+using namespace std;
+
+class Book
+{
+    private:
+    string title,author;
+    bool issuedStatus;
+    public:
+    Book(string title,string author,bool issuedStatus)
+    {
+        this->title=title;
+        this->author=author;
+        this->issuedStatus=issuedStatus;
+        issuedStatus=false;
+    }
+    ~Book()
+    {
+        cout<<"\n"<<title<< "is being removed from the system"<<endl;
+    }
+    void issueBook()
+    {
+        issuedStatus=true;
+    }
+    void returnBook()
+    {
+        issuedStatus=false;
+    }
+    void displayBook()
+    {
+        cout<<"\ntitle is "<<title<<"\nauthor is "<<author<<"\n issued status is "<<issuedStatus;
+    }
+    
+};
+
+int main()
+{
+    Book b1("c++","pandu",123);
+    Book b2("java","champa",256);
+    cout<<"\nbook status \n";
+    b1.displayBook();
+    cout<<"\nisuueing book status \n";
+    b1.issueBook();
+    b1.displayBook();
+    cout<<"\nAfter returning book \n";
+    b1.returnBook();
+    b1.displayBook();
+    cout<<"\nisuueing book status \n";
+    b2.issueBook();
+    b2.displayBook();
+    cout<<"\nAfter returning book \n";
+    b2.returnBook();
+    b2.displayBook();
+    
+   
+}
+
+
+/*Educational Institute:
+
+Problem Definition:
+
+Create a base class Person
+with attributes like name, address, and dateOfBirth
+and methods like displayDetails().
+
+Derive two subclasses from Person:
+Student: Adds attributes like studentID, major, and methods like study().
+Instructor: Adds attributes like employeeID, subjectTaught, and methods like teach().
+Instantiate the Student and Instructor classes, set their attributes,
+and invoke their methods to demonstrate the inheritance structure.
+
+
+person {
+    name 
+    dateOfBirth
+    address
+    
+    displayDetails()
+    {
+        name,add,dob;
+    }
+    
+    student {
+        studentID
+        major
+        study()
+        {                  //set
+           rollno
+           major
+        }
+    }
+    
+    Instruuctor
+    {
+        employeeeID int
+        sujectTaught string
+        teach()                    //set
+        {
+           empid,sub ;        
+        }
+    }
+    
+}
+
+*/
+#include <iostream>
+#include<string>
+using namespace std;
+
+class Person
+{
+    protected:
+    string name,address,dob;
+    public:
+    Person(string name ,string address ,string dob)
+    {
+        this->name=name;
+        this->address=address;
+        this->dob=dob;
+    }
+    
+    void displayDetails()
+    {
+        cout<<"\n name is "<<name;
+        cout<<"\n adddress is "<<address;
+        cout<<"\n dob is "<<dob<<endl;
+    }
+    
+};
+class Student:public Person
+{
+    protected:
+    int studentID;
+    string major;
+    public:
+    Student(string name ,string address ,string dob,int studentID,string major): Person(name, address, dob)
+    {
+        this->name=name;
+        this->address=address;
+        this->dob=dob;
+        this->studentID=studentID;
+        this->major=major;
+    }
+    void study()
+    {
+        displayDetails();
+        cout<<"\nStudent id is "<<studentID;
+        cout<<"\nmajor is "<<major<<endl;
+        
+    }
+};
+
+class Instructor : public Person
+{
+    protected:
+    int employeeID;
+    string subjectTaught;
+    public:
+    Instructor(string name ,string address ,string dob,int employeeID,string subjectTaught): Person(name, address, dob)
+    {
+        
+        this->name=name;
+        this->address=address;
+        this->dob=dob;
+        this->employeeID=employeeID;
+        this->subjectTaught=subjectTaught;
+    }
+    void teach()
+    {
+        displayDetails();
+        cout<<"\nemployeeID is "<<employeeID;
+        cout<<"\nSubject taught is "<<subjectTaught;
+    }
+
+};
+int main()
+{
+    Student s("John", "Mumbai", "2001/11/18", 12345, "Computer Science");
+    s.study();
+
+    Instructor i("Jane", "New York", "1980/05/15", 9876, "Mathematics");
+    i.teach();
+}
+
+
+/******************************************************************************
+Traditional Indian Musical Instrument Shop
+Objective: Model a shop that sells various types of traditional Indian musical instruments. Each instrument has its distinct way of producing sound, and their prices vary based on their characteristics.
+
+Concepts Involved: Abstraction (using abstract classes and methods) and Method Overriding.
+
+Problem Definition:
+
+Abstract Class: Instrument
+
+Attributes:
+name: Name of the musical instrument (e.g., Sitar, Tabla).
+price: Price of the instrument in Indian Rupees.
+Methods:
+playSound(): An abstract method. The specific sound production is to be defined in derived classes.
+displayDetails(): Displays the name and price of the instrument.
+setPrice(int newPrice): Sets the price of the instrument.
+getPrice(): Retrieves the price of the instrument.
+
+Derived Class: Sitar (from Instrument)
+Attributes:
+numberOfStrings: Typical sitars have between 18 to 21 strings.
+Methods:
+playSound(): Override the base method to print "Strumming the [numberOfStrings]-stringed sitar!"
+displayDetails(): Display the name, price, and number of strings of the sitar.
+
+Derived Class: Tabla (from Instrument)
+Attributes:
+tablaSet: A pair of drums – one smaller (dayan) and one larger (bayan).
+Methods:
+playSound(): Override the base method to print "Beating the rhythmic tabla set!"
+displayDetails(): Display the name, price, and mention of the tabla set.
+Main Program:
+
+Instantiate a Sitar with the name "Mohan's Sitar", priced at ₹30,000, with 19 strings.
+Instantiate a Tabla with the name "Giridhar's Tabla Set", priced at ₹12,000.
+Display the details of both instruments using the displayDetails() method.
+Invoke the playSound() method for both instruments to demonstrate their unique sounds.
+
+output Expected:
+Instrument Details:
+Name: Mohan's Sitar
+Price: ₹30,000
+Strings: 19
+Strumming the 19-stringed sitar!
+
+Instrument Details:
+Name: Giridhar's Tabla Set
+Price: ₹12,000
+Set: Dayan and Bayan pair
+Beating the rhythmic tabla set!
+*/
+
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+class Instrument
+{
+    protected:
+    string name;
+    int price;
+    public:
+    Instrument(string name , int price)
+    {
+        this->name=name;
+        this->price=price;
+    }
+    void setprice(int newPrice)
+    {
+        price=newPrice;
+    }
+   
+    
+    virtual void playSound()=0;
+    virtual void displayDetails()=0;
+};
+
+class Sitar:public Instrument
+{
+    private:
+    int numberOfStrings;
+    public:
+    Sitar(string name , int price , int numberOfStrings):Instrument(name,price)
+    {
+        // this->name=name;
+        // this->price=price;
+        this->numberOfStrings=numberOfStrings;
+    }
+    void displayDetails()
+    {
+        cout<<"\nname : "<<name;
+        cout<<"\nprice : ₹ "<<price;
+        cout<<"\nnumber of strings "<<numberOfStrings;
+       
+    }
+    void playSound()
+    {
+        cout<<"\nStrumming the " <<numberOfStrings<< " stringed sitar!"<<endl;
+    }
+    
+};
+
+class Tabla:public Instrument
+{
+    private:
+    string tablaSet;
+    public:
+    Tabla(string name , int price , string tablaSet):Instrument(name,price)
+    {
+        // this->name=name;
+        // this->price=price;
+        this->tablaSet=tablaSet;
+    }
+    void displayDetails()
+    {
+        cout<<"\nname : "<<name;
+        cout<<"\nprice : ₹"<<price;
+        cout<<"\nset :"<<tablaSet;
+        
+    }
+    void playSound()
+    {
+        cout<<"\nBeating the rhythmic tabla set!";
+    }
+    
+};
+
+int main()
+{
+    cout<<"\n Instrument Details :"<<endl;
+    Sitar s("Mohan's Sitar",30000,19);
+    s.displayDetails();
+    s.playSound();
+    Tabla t("Giridhar's Tabla Set",12000,"Dayan and Bayan pair");
+    t.displayDetails();
+    t.playSound();
+}
+

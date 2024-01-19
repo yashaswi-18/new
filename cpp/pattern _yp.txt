@@ -1,0 +1,508 @@
+
+#include <iostream>
+
+using namespace std;
+/*
+int main()
+{
+    for(int i=1;i<=5;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            cout<<"*";
+        }
+        cout<<"\n";
+    }
+
+    return 0;
+}*/
+/*
+int main()
+{
+    for(int i=1;i<=5;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            cout<<j;
+        }
+        cout<<"\n";
+    }
+
+    return 0;
+}
+1
+12
+123
+1234
+12345
+*/
+/*
+int main()
+{
+    for(int i=1;i<=5;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            cout<<i;
+        }
+        cout<<"\n";
+    }
+
+    return 0;
+}
+
+1
+22
+333
+4444
+55555
+*/
+/*
+int main()
+{
+    for(int i=1;i<=5;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            cout<<j%2;
+        }
+        cout<<"\n";
+    }
+
+    return 0;
+}
+1
+10
+101
+1010
+10101
+*/
+/*
+int main()
+{
+    for(int i=1;i<=5;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            cout<<i%2;
+        }
+        cout<<"\n";
+    }
+
+    return 0;
+}
+1
+00
+111
+0000
+11111
+*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    for(int i=5;i>=1;i--)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            cout<<"x";
+        }
+        
+        cout<<"\n";
+    }
+
+    return 0;
+}
+xxxxx
+xxxx
+xxx
+xx
+x
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    for(int i=1;i<=5;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            
+            cout<<"x";
+        }
+        
+        cout<<"\n";
+    }
+    for(int i=4;i>=1;i--)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            
+            cout<<"x";
+        }
+        
+        cout<<"\n";
+    }
+    
+
+    return 0;
+}
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    for(int i=1;i<=5;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            
+            cout<<"x";
+        }
+        
+        cout<<"\n";
+    }
+    for(int i=4;i>=1;i--)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            
+            cout<<"x";
+        }
+        
+        cout<<"\n";
+    }
+    
+
+    return 0;
+}
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    for(int i=1;i<=5;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            
+            cout<<"x";
+        }
+        
+        cout<<"\n";
+    }
+    for(int i=4;i>=1;i--)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            
+            cout<<"x";
+        }
+        
+        cout<<"\n";
+    }
+    
+
+    return 0;
+}
+[?2004l
+x
+xx
+xxx
+xxxx
+xxxxx
+xxxx
+xxx
+xx
+x
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    for(int i=5;i>=1;i--)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            
+            cout<<"x";
+        }
+        
+        cout<<"\n";
+    }
+    for(int i=2;i<=5;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            
+            cout<<"x";
+        }
+        
+        cout<<"\n";
+    }
+    
+
+    return 0;
+}
+[?2004l
+xxxxx
+xxxx
+xxx
+xx
+x
+xx
+xxx
+xxxx
+xxxxx
+
+
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{ 
+    char i,j;
+    for( i='A';i<='E';i++)
+    {
+        for( j='A';j<=i;j++)
+        {
+          cout<<j<<" ";
+        
+        }
+        cout<<"\n";
+    }
+
+    return 0;
+}
+
+
+A 
+A B 
+A B C 
+A B C D 
+A B C D E 
+
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{ 
+    char i,j ,a,b;
+    cout<<"Enter start alphabet";
+    cin>>a;
+    cout<<"Enter end alphabet";
+    cin>>b;
+    for( i=a;i<=b;i++)
+    {
+        for(j=a;j<=i;j++)
+        {
+          cout<<j;
+          
+        
+        }
+        cout<<"\n";
+    }
+
+    return 0;
+}
+
+Enter start alphabetP
+Enter end alphabet T
+P
+PQ
+PQR
+PQRS
+PQRST
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{ 
+    int s;
+    for(int i=1,space=5;i<=5 && space>=1;i++,space--)
+    {
+        for(s=1;s<=space;s++)
+        {
+            cout<<" ";
+        }
+        for(int j=1;j<=i;j++)
+        {
+          cout<< "x";
+        
+        }
+        cout<<"\n";
+    }
+
+    return 0;
+}
+
+     x
+    xx
+   xxx
+  xxxx
+ xxxxx
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{ 
+    int s;
+    for(int i=1,space=5;i<=5 && space>=1;i++,space--)
+    {
+        for(s=1;s<=space;s++)
+        {
+            cout<<" ";
+        }
+        for(int j=1;j<=i;j++)
+        {
+          cout<< "x ";
+        
+        }
+        cout<<"\n";
+    }
+
+    return 0;
+}
+
+     x 
+    x x 
+   x x x 
+  x x x x 
+ x x x x x 
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{ 
+    int s,space , j,i;
+    char ia,ja;
+    for(space=5,i=1,ia='A';space>=1 && i<=5 && ia<='E'; space--,i++,ia++)
+    {
+        for(s=1;s<=space;s++)
+        {
+            cout<<" ";
+        }
+        for(j=1;j<=i;j++)
+        
+          cout<<j;
+        
+        
+        for(ja='A';ja<=ia;ja++)
+        {
+          cout<<ja;
+        
+        }
+        cout<<"\n";
+    }
+    
+
+    return 0;
+}
+
+
+     1A
+    12AB
+   123ABC
+  1234ABCD
+ 12345ABCDE
+
+
+
+
+
+
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{ 
+    for(char i='A';i<='Z' ;i++)
+    cout<<"\n"<<i<<":"<<(int)i;
+    return 0;
+}
+A:65
+B:66
+C:67
+D:68
+E:69
+F:70
+G:71
+H:72
+I:73
+J:74
+K:75
+L:76
+M:77
+N:78
+O:79
+P:80
+Q:81
+R:82
+S:83
+T:84
+U:85
+V:86
+W:87
+X:88
+Y:89
+Z:90[?2004h
+
+
+/* 100 to 1000*/
+#include <iostream>
+using namespace std;
+int main()
+{
+	int no,digit,sum=0,tno;
+    for(no=100;no<=1000;no++)
+     {
+        sum=0;
+		tno=no;
+		while(tno>0)
+		{
+			digit=tno%10;//get last digit
+			tno=tno/10;//removes last digit
+			sum=sum+digit*digit*digit;
+		}
+		if(sum==no)
+		  cout<<"\n"<<no<<" is armstrong";
+     }
+}
+153 is armstrong
+370 is armstrong
+371 is armstrong
+407 is armstrong
+
+
+
+

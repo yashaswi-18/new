@@ -1,0 +1,79 @@
+/*File_Writer-
+1.read a file-->ask for name--->read and show
+2.write to a file--->ask for name---->take lines till EXIT_NOW and write in file
+                                                      ----->in already not there create
+                                                      >>>>entries are log based
+*/
+/* File name for read :- data.txt -> Yashaswi */ 
+
+
+#include<iomanip>
+#include <iostream>
+#include <fstream>
+#include<ctime>
+using namespace std;
+int main()
+{
+    int choice;
+    do
+    {
+	      int choice;
+	      cout<<"\n1.Read a file \n2.Write a file \n3.Exit"<<endl;
+	      cout<<"\nEnter choice:"<<endl;
+	      cin>>choice;
+	      switch(choice)
+	      {
+		case 1:
+		{
+			ifstream finput("data.txt");
+		  	string name;
+		  	while(getline(finput,name))
+		  	{
+		  		cout<<"\nName is : "<<name<<endl;
+		  	}
+		  			  		  
+		  	finput.close();
+		}	break;
+			
+		case 2:
+		{
+			cout<<"Enter your name:";
+			string name;
+			cin>>name; 
+			ofstream myFile(name+".txt",ios::app);
+			
+			time_t now = time(0);
+            string date_time = ctime(&now);
+            cout<<"Logged book is:"<<date_time;
+			do
+			{
+			   	cout<<"\nName is -- ";
+			   	getline(cin,name);
+			   	if(name=="EXIT_NOW")
+			   	{
+			   	  myFile<<"------------------------------------------\n";
+			      myFile.close();
+			   	  break;
+				}
+				else
+				{
+				  myFile<<name<<"\n";
+				}
+				
+			
+			} while (true);
+                break;
+            }
+            case 3: {
+                cout << "Exit" << endl;
+                return 0; 
+            }
+            default: {
+                cout << "Wrong option selected" << endl;
+                break;
+            }
+        }
+    } while (choice != 3); 
+    
+    return 0;
+}

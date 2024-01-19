@@ -1,0 +1,879 @@
+/* 1. Strong Number:*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n , m ,r,sum;
+    cout<<"Enter any number :- ";
+    cin>>n;
+    m=n;
+    while(n!=0)
+    {
+        r=n%10;
+        int fact=1;
+        for(int i=1;i<=r;i++)
+        {
+            fact=fact*i;
+        }
+        sum+=fact;
+        n=n/10;
+        
+    }
+    if(sum==m)
+    {
+        cout<<m <<"is a strong number";
+    }
+    else
+    {
+        cout<<m <<" is not a strong number";
+    }
+}
+
+
+/* 2.Perfect Number: */
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n , sum;
+    cout<<"Enter any number :- ";
+    cin>>n;
+    for(int i=1;i<n;i++)
+    {
+        if(n%i==0)
+        {
+           sum+=i;
+        }
+       
+    }
+    if(sum==n)
+    {
+        cout<<n<<" is the perfect number";
+    }
+    else
+    {
+        cout<<n<<" is not a perfect number";
+    }
+}
+
+
+/* 3. Perfect Square:  */
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int i,flag , n;
+    cout<<"Enter any number :- ";
+    cin>>n;
+    for(int i=1;i<=n;i++)
+    {
+        if(i*i == n)
+        {
+           flag=1;
+           break;
+        }
+        if(i * i > n)
+        {
+        
+            break;
+        }
+       
+    }
+    if(flag)
+    {
+        cout<<n<<" is the perfect square";
+    }
+    else
+    {
+        cout<<n<<" is not a perfect square";
+    }
+}
+
+/* 4. Automorphic Number:*/
+
+#include <iostream>
+
+using namespace std;
+
+int noAutomorphic(int n)
+{
+    int sq=n*n;
+    while(n>0)
+    {
+        if(n%10!=sq%10)
+        {
+            return false;
+        }
+    
+    n /= 10;
+    sq /=10;
+    }
+   return true;
+}  
+
+int main()
+{
+    int i,sq , n;
+    cout<<"Enter any number :- ";
+    cin>>n;
+   
+    
+
+   if(noAutomorphic(n))
+   {
+        cout<<n<<" is the automorphic number";
+   }
+   else
+   {
+        cout<<n<<" is not a automorphic number";
+   }
+}
+
+
+/* 5. Harshad Number:*/
+
+#include <iostream>
+using namespace std;
+
+int noHarshad(int n){
+    
+    int sum = 0;
+    int temp = n;
+    
+    while(temp != 0){
+        sum = sum + temp % 10;
+        temp /= 10;
+    }
+    
+    
+    return n % sum == 0;
+}
+
+int main ()
+{
+    int n;
+    cout<<"Enter any number ";
+    cin>>n;
+    
+    if(noHarshad(n))
+        cout << n << " is a Harshad number";
+    else
+        cout << n << " is not a Harshad number";
+
+    return 0;
+}
+
+/*6.Abundant Number: */
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n , sum =0;
+    cout<<"Enter any number:- ";
+    cin>>n;
+    for(int i=1;i<=n;i++)
+    {
+        if(n%i == 0)
+        {
+            sum=sum+i;
+        }
+    }
+        if(sum>n)
+        {
+            cout<<n<<" number is abundant"<<endl;
+            cout<<"The abundace of number is "<<(sum-n)<<endl;
+        }
+        else
+        {
+            cout<<"number is not abundant";
+        }
+    
+}
+
+/* 7. Friendly Pair: */
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+   int n1,n2,i,sum=0;
+   cout<<"Enter 2 number:";
+   cin>>n1>>n2;
+   
+   for(i=1;i<n1;i++)
+   {
+       if(n1%i==0)
+       {
+          
+        cout<<" "<<i;
+           
+        sum=sum+i;
+        
+       }
+       
+   } 
+   
+   cout<<"\nsum="<<sum;
+   
+        if(sum==n2)
+       {
+         cout<<"\n Friendly pair";
+       }
+       else
+       {
+           cout<<"\nNot Friendly pair";
+       }
+   
+  return 0;  
+}
+
+
+
+
+/* 8. Highest Common Factor (HCF):*/
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int h1,h2;
+    cout<<"Enter two values:-";
+    cin>>h1>>h2;
+    while(h1!=h2)
+    {
+        if(h1>h2)
+        {
+            h1-=h2;
+        }
+        else
+        {
+            h2-=h1;
+        }
+        
+        
+    }
+    cout<<"HCF is "<<h1;
+    return 0;
+}
+
+
+/*9 .  Lowest Common Multiple (LCM):*/
+
+#include <iostream>
+
+using namespace std;
+int main()
+{
+    int h1, h2, hcf, temp, lcm;
+
+    cout << "Enter two numbers: ";
+    cin >> h1 >> h2;
+
+    hcf = h1;
+    temp = h2;
+    
+    while(hcf != temp)
+    {
+        if(hcf > temp)
+            hcf -= temp;
+        else
+            temp -= hcf;
+    }
+
+    lcm = (h1 * h2) / hcf;
+
+    cout << "LCM = " << lcm;
+    return 0;
+}
+
+
+/*10.Greatest Common Divisor:*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int g1,g2;
+    cout<<"Enter two values:-";
+    cin>>g1>>g2;
+    while(g1!=g2)
+    {
+        if(g1>g2)
+        {
+            g1-=g2;
+        }
+        else
+        {
+            g2-=g1;
+        }
+        
+        
+    }
+    cout<<"GCD is "<<g1;
+    return 0;
+}
+
+/* 11. Binary to Decimal Conversion: */
+
+
+#include<iostream>
+using namespace std;
+
+int main ()
+{
+    int n, rem, temp, dec = 0, b = 1;
+    cout << "Enter the binary number : ";
+    cin >> n;
+    
+    while (n > 0)
+    {
+        rem = n % 10;
+        dec = dec + (rem * b);
+       
+        b *= 2;
+         n /= 10;
+        
+    }
+    cout << "The decimal number is " << dec;
+    return 0;
+}
+
+
+/* 12. Decimal to Binary Conversion: - */
+
+#include <iostream>  
+using namespace std;  
+
+int main()  
+{  
+     int a[10], n, i;    
+     cout<<"Enter the decimal number :- ";    
+     cin>>n;
+     
+     for(i=0; n>0; i++)    
+     {    
+         a[i]=n%2;    
+         n= n/2;  
+     }    
+    
+     cout<<"Binary number is :- ";
+     for(i=i-1 ;i>=0 ;i--)    
+     {    
+        cout<<a[i];    
+     }    
+     
+}  
+
+/* 13. Quadrants in Which a Given Coordinate Lies: */
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+
+	int a,b;
+	cout<<"Enter two number :- ";
+	cin >> a >> b;
+	
+	if(a > 0 && b > 0)
+		cout << "Quadrant I";
+		
+	else if(a < 0 && b > 0)
+		cout << "Quadrant II";
+		
+	else if(a < 0 && b < 0)
+		cout << "Quadrant III";
+		
+	else if(a > 0 && b < 0)
+		cout << "Quadrant IV";
+		
+	else
+		cout << "Origin";
+return 0;
+}
+
+/* 14. Replace All 0's with 1 in a Given Integer:*/
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int n ,rnum=0 , rem ;
+    cout<<"Enter any number :- ";
+    cin>>n;
+    
+    if(n==0){
+        rnum=1;
+    }
+    while(n>0)
+    {
+        rem=n%10;
+        if(rem==0)
+        {
+            rem=1;
+        }
+        n=n/10;
+        rnum=rnum*10+rem;
+    }
+    n=0;
+    while(rnum>0)
+    {
+        int r= rnum%10;
+        n=n*10+r;
+        rnum/=10;
+    }
+    cout<<"The replacing 0's into 1's of number is "<<n ;
+    return 0;
+}
+
+
+
+/* 15. Calculate the Number of Digits in an Integer: */
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    long n;
+    cout<<"Enter the number to count digit :-";
+    cin>>n;
+    int count =1;
+    for(int i=1;i<=n;i++)
+    {
+        
+        n=n/10;
+        count++;
+    }
+    cout<<count;
+}
+
+/* 18.Finding Number of Times 'x' Digit Occurs in a Given Input:*/
+
+#include<iostream>
+using namespace std;
+
+ int main()
+ {
+        int n ,r , count = 0;
+        
+        cout<<"Enter any number :- ";
+        cin>>n;
+        
+        cout<<"count the digit that occur many times :- ";
+        cin>>r;
+
+        while(n>0)
+        {
+            int rem = n%10;
+            if(rem == r)
+                count++;
+            n /= 10;
+        }
+        cout<< "The digit "<< r<< "occurs " << count<<" times.";
+
+}
+
+
+/* 19.Finding Roots of a Quadratic Equation:: */
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+
+    float a, b, c, x1, x2, d, real, imaginary;
+    
+    cout << "Enter coefficients a, b and c: ";
+    
+    cin >> a >> b >> c;
+    
+    d = b*b - 4*a*c;
+    
+    if (d > 0) {
+        x1 = (-b + sqrt(d)) / (2*a);
+        x2 = (-b - sqrt(d)) / (2*a);
+        
+        cout << "x1 = " << x1 << endl;
+        cout << "x2 = " << x2 << endl;
+    }
+    
+    else if (d == 0) {
+       
+        x1 = -b/(2*a);
+        cout << "x1 = x2 =" << x1 << endl;
+    }
+
+    else {
+        real = -b/(2*a);
+        imaginary =sqrt(-d)/(2*a);
+        
+        cout << "x1 = " << real << "+" << imaginary<< "i" << endl;
+        cout << "x2 = " << real << "-" << imaginary << "i" << endl;
+    }
+
+    return 0;
+}
+
+
+
+/* 20. Reverse an Array:*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int a[100],i,size;
+	
+	cout<<"Enter n:";
+	cin>>size;
+	
+	for(i=0;i<size;i++)
+	 {
+	 	cout<<"\nEnter element at "<<i<<":";
+	 	cin>>a[i];
+	 }
+	cout<<"\nTotal "<<size<<" are\n";
+	
+	for(i=size-1;i>=0;i--)
+	 {
+	 	cout<<a[i]<<",";
+	 }
+	
+}
+
+/* 21. Removing Duplicate Elements from an Array:*/
+
+#include<iostream>
+using namespace std;
+int main ()
+{
+    int r[10], c[10], n, i, j, k = 0;
+    
+    cout << "Enter size of array : ";
+    cin >> n;
+    cout << "Enter elements of array : ";
+    
+    for (i = 0; i < n; i++)
+        cin >> r[i];    
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < k; j++)
+        {
+            if (r[i] == c[j])
+                break;
+        }
+        if (j == k)
+        {
+            c[k] = r[i];
+            k++;
+        }
+    }
+    
+    cout << "Repeated elements after removing : ";
+    
+    for (i = 0; i < k; i++)
+        cout << c[i] << " ";
+    return 0;
+}
+
+
+/* 22.Search for an Element in a Matrix: - */ 
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	int m[10][10],r,c,rsize,csize,flag=0,s;
+	cout<<"Enter number of rows and columns:\n";//size
+	cin>>rsize>>csize;
+	//read
+	for(r=0;r<rsize;r++)//i=0 to size-1
+	 {
+	 	for(c=0;c<csize;c++)
+		 {
+		   cout<<"\nEnter element at "<<r<<","<<c<<" : ";
+		   cin>>m[r][c];
+		 }
+	 }
+	 cout<<"Enter no that you want to search :- ";
+	 cin>>s;
+    for(int r=0; r<10; r++){
+
+        for(int c=0; c<10; c++){
+            if(m[r][c]==s){
+                cout<<"Element is found at position "<<"("<<r<<","<<c<<")";
+                flag=1;
+                break;
+            }
+        }
+
+        if(flag==1)
+            break;
+    }
+
+    if(flag==0)
+        cout<<"Not found";
+}
+
+/*  23. Rotation of Elements of an Array (Left and Right): */
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int n,d;
+
+	
+	cout<<"Enter the value of n and d"<<endl;
+	cin>>n>>d;
+	
+	int a[n];
+
+	
+	cout<<"enter the array elements : ";
+	for(int i=0;i<n;i++)
+	{
+		cin>>a[i];
+	}
+
+
+	cout<<"array elements after left rotation : ";
+	for(int i=0;i<n;i++)
+	{
+		cout<<a[(i+d)%n]<<" ";
+	}
+
+	return 0;
+}
+
+
+
+/* 26 . Patterns:*/
+
+
+/* 1 23 456 78910 */
+#include <iostream>
+using namespace std;
+
+
+int main()
+{
+    
+    int k=1;
+    for(int i=1;i<=4;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            cout<<k++;
+        }
+        cout<<"\n";
+    }
+
+    return 0;
+}
+
+/* 10987 456 23 1*/
+
+#include <iostream>
+using namespace std;
+
+
+int main()
+{
+    
+    int k=10;
+    for(int i=4;i>=1;i--)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            cout<<k--;
+        }
+        cout<<"\n";
+    }
+
+    return 0;
+}
+
+/* 6666 555 44 3 */
+
+#include <iostream>
+using namespace std;
+
+
+int main()
+{
+    
+    for (int i = 6; i >= 3; i--)
+    {
+        for (int j = 1; j <= i-2; j++)
+        {
+            cout<<i;
+        }
+        cout<<"\n";
+    }
+
+    return 0;
+}
+
+/* 27. Counting Upper and Lower Case Letters: */
+
+#include <iostream>
+using namespace std;
+#include<string.h>
+
+
+int main()
+{
+    int i;
+    int upper=0,lower=0;
+    char ch[100];
+    cout<<"Enter the String:\n";
+    gets(ch);
+    
+       for(i=0; ch[i]!=0; i++)
+       {
+           if(ch[i]>='A' && ch[i]<='Z')
+           {
+               upper++;
+           }
+           else if(ch[i]>='a' && ch[i]<='z')
+           {
+                lower++;
+           }
+       }
+       cout<<"No. of Upper case characters:" <<upper;
+       cout<<"\nNo. of Lowercase Characters:"<<lower;
+
+    return 0;
+}
+
+
+/* 28 .Printing Even Numbers from an Array: */
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter the elements in the array: ";
+    cin >> n;
+
+    int a[n];
+    cout << "Enter the elements of the array:" <<endl;
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    cout << "Even number:" <<endl;
+    for (int i = 0; i < n; i++) {
+        if (a[i] % 2 == 0) {
+            cout << a[i] << " ";
+        }
+    }
+
+    cout<<endl;
+
+    return 0;
+}
+
+/* 29. Roots of Quadratic Equations: */
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+
+    float a, b, c, x1, x2, d, real, imaginary;
+    
+    cout << "Enter coefficients a, b and c: ";
+    
+    cin >> a >> b >> c;
+    
+    d = b*b - 4*a*c;
+    
+    if (d > 0) {
+        x1 = (-b + sqrt(d)) / (2*a);
+        x2 = (-b - sqrt(d)) / (2*a);
+        
+        cout << "x1 = " << x1 << endl;
+        cout << "x2 = " << x2 << endl;
+    }
+    
+    else if (d == 0) {
+       
+        x1 = -b/(2*a);
+        cout << "x1 = x2 =" << x1 << endl;
+    }
+
+    else {
+        real = -b/(2*a);
+        imaginary =sqrt(-d)/(2*a);
+        
+        cout << "x1 = " << real << "+" << imaginary<< "i" << endl;
+        cout << "x2 = " << real << "-" << imaginary << "i" << endl;
+    }
+
+    return 0;
+}
+
+
+/* 30 .Checking for Perfect Square: */
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int i,flag , n;
+    cout<<"Enter any number :- ";
+    cin>>n;
+    for(int i=1;i<=n;i++)
+    {
+        if(i*i == n)
+        {
+           flag=1;
+           break;
+        }
+        if(i * i > n)
+        {
+        
+            break;
+        }
+       
+    }
+    if(flag)
+    {
+        cout<<n<<", Yes it is the perfect square";
+    }
+    else
+    {
+        cout<<n<<", No it is not a perfect square";
+    }
+}
+
+

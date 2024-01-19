@@ -1,0 +1,262 @@
+/***************** conditional statement ***************/
+
+/*1.Check number is less than 10*/
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n , i;
+    cout<<"Enter the any number:-";
+    cin>>n;
+    if(n<10)
+    {
+        cout<<n<<" is less than 10";
+    }
+    else
+    {
+        cout<<"Number is not less than 10";
+    }
+
+    return 0;
+}
+
+
+/*2.Check number is equivalent*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n1 ,n2;
+    cout<<"Enter the any two number:-";
+    cin>>n1>>n2;
+    if(n1==n2)
+    {
+        cout<<"Number is Equivalent";
+    }
+    else
+    {
+        cout<<"Number is not equivalent";
+    }
+    
+
+    return 0;
+}
+
+/*3.Check voting eligibility*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int age;
+    cout<<"Enter the age to check voting eligibility:-";
+    cin>>age;
+    if(age>=18)
+    {
+        cout<<"This age group people are allow for voting";
+    }
+    else
+    {
+        cout<<"Age is below 18 not eligible for vote";
+    }
+    
+    
+
+    return 0;
+}
+
+/*4.check if number is even or odd*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cout<<"Enter the number to check even or odd:-";
+    cin>>n;
+    if(n%2==0)
+    {
+        cout<<"The number " << n << " is even";
+    }
+    else
+    {
+        cout<<"The given number "<<n<<" is odd";
+    }
+    
+    
+
+    return 0;
+}
+
+/*5.Enter three angles and check if it is triangle*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a1,a2,a3 , sum;
+    cout<<"Enter the three angles:-";
+    cin>>a1>>a2>>a3;
+    sum=a1+a2+a3;
+    if(sum==180)
+    {
+        cout<<"It is a triangle";
+    }
+    else
+    {
+        cout<<"It is not a triangle";
+    }
+    
+    
+
+    return 0;
+}
+
+/*6.Find total marks and percentage */
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int s1,s2,s3,s4,s5;
+    int marks;
+    float percentage;
+    cout<<"Enter the 5 subject:-";
+    cin>>s1>>s2>>s3>>s4>>s5;
+    
+    marks=s1+s2+s3+s4+s5;
+    percentage=(marks*100)/500;
+    
+    cout<<"Total marks is "<<marks<<endl;
+    cout<<"Percentage is "<<percentage<<endl;
+    
+    return 0;
+}
+
+/*7.check for leap year*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int year;
+    cout<<"Enter the year :-";
+    cin>>year;
+    if(year%4==0 && year%100!=0)
+    {
+        cout<<"Year "<<year<<" is leap year";  
+    }
+    else if(year%400==0)
+    {
+        cout<<"This is leap year";
+    }
+    else
+    {
+        cout<<"Not leap year";
+    }
+    
+    return 0;
+}
+
+/*8.check number is +ve , -ve or zero */
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cout<<"Enter the number :-";
+    cin>>n;
+    if(n>0)
+    {
+        cout<<n<<" the number is positive";
+    }
+    else if(n<0)
+    {
+        cout<<n<<" the number is negative";
+    }
+    else
+    {
+        cout<<"The number is zero";
+    }
+    
+    return 0;
+}
+
+/*9.calculate sum of fibonacci series up to n terms */
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int f1=1,f0=0,fn,n;
+    
+    cout<<"Enter number of term:";
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        if(i<=1)
+        {
+            cout<<i<<",";
+        }
+        else
+        {
+            fn=f0+f1;
+            cout<<fn<<",";
+            f0=f1;
+            f1=fn;
+            
+           
+        }
+        
+    }
+    
+    return 0;
+}
+
+/*10.calculate H.C.F using while loop*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int h1,h2;
+    cout<<"Enter two values:-";
+    cin>>h1>>h2;
+    while(h1!=h2)
+    {
+        if(h1>h2)
+        {
+            h1-=h2;
+        }
+        else
+        {
+            h2-=h1;
+        }
+        
+        
+    }
+    cout<<h1;
+    return 0;
+}

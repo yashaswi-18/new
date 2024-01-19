@@ -1,0 +1,1906 @@
+
+/**************** class program **************/
+
+#include <iostream>
+using namespace std;
+class Human
+{
+  private:
+  	string name,gender;
+
+  public:
+  void setHuman(string n ,string g)
+  {
+     name=n;
+	 gender=g;
+  }
+  void displayHuman()
+  {
+  	cout<<"\nhi i am a "<<gender;//<<" called "<<name;
+  }
+};
+int main()
+{
+	Human h;
+	h.setHuman("amar","male");
+	h.displayHuman();
+	Human h2;
+	h2.setHuman("amarita","female");
+	h2.displayHuman();
+
+}
+
+/**************** Area of circle **********/
+
+#include<iostream>
+using namespace std;
+
+class Area{
+    
+    private:
+  float area;    
+        float r;
+      
+      
+    public:
+   void setRadius(float r)
+   {
+       this->r=r; 
+   //this refers to local instance 
+   //c.setRadius a, is refer by this pointer
+    //this.r->a ka pointer
+   }
+   void displayArea()
+   {
+    cout<<"Area of circle is :"<<3.14*r*r;;
+   }
+};
+int main()
+{
+    Area a;
+    a.setRadius(2.2);
+    a.displayArea();
+}
+
+
+ /* OR*/
+
+#include<iostream>
+using namespace std;
+
+class Area{
+    
+    private:
+    
+      
+        float r;
+      
+      
+    public:
+    
+  /* void setRadius(float r)
+   {
+       this->r=r; 
+   //this refers to local instance 
+   //c.setRadius a, is refer by this pointer
+    //this.r->a ka pointer
+   }*/
+   void displayArea(float r)
+   {
+    
+    cout<<"Area of circle is :"<<3.14*r*r;;
+   }
+};
+int main()
+{
+    Area a;
+    float r;
+    cout<<"Enter radius:- ";
+    cin>>r;
+    //a.setRadius(r);
+    a.displayArea(r);
+}
+
+
+/********** default constructor *******************/
+
+#include <iostream>
+using namespace std;
+class Human
+{
+  private:
+  	string name,gender;
+
+  public:
+  Human() //ye automatic call hota hai jitne object honge utna //default constructor set default values
+  {
+      cout<<"Human created :Default value constructor";
+      name="unnamed";
+      gender="unknown";
+  }
+  void setHuman(string n ,string g)
+  {
+     name=n;
+	 gender=g;
+  }
+  void displayHuman()
+  {
+  	cout<<"\nhi i am a "<<gender<<" called "<<name;
+  }
+};
+int main()
+{
+	Human h;
+	h.displayHuman();
+	h.setHuman("amar","male");
+	h.displayHuman();
+	
+}
+
+/****************** parametrized constructor - set to user given values *********************/
+
+#include <iostream>
+using namespace std;
+class Human
+{
+  private:
+  	string name,gender;
+
+  public:
+   Human() //ye automatic call hota hai jitne object honge utna //default constructor set default values
+  {
+      cout<<"Human created :Default value constructor";
+      name="unnamed";
+      gender="unknown";
+  }
+  Human(string name , string gender)
+  {
+      cout<<"\nHuman created :parametrized value constructor";
+      this->name=name;
+      this->gender=gender;
+  }
+  void setHuman(string n ,string g)
+  {
+     name=n;
+	 gender=g;
+  }
+  void displayHuman()
+  {
+  	cout<<"\nhi i am a "<<gender<<" called "<<name;
+  }
+};
+int main()
+{
+	Human h;//object of classs human defaul constructor called
+	h.displayHuman();
+	h.setHuman("amar","male");//set
+	h.displayHuman();//displayHuman
+    Human h2("abc","male");
+	h2.displayHuman();
+	
+}
+
+Human created :Default value constructor
+hi i am a unknown called unnamed
+hi i am a male called amar
+Human created :parametrized value constructor
+hi i am a male called abc
+
+
+/*********** copy constructor ****************/
+
+#include <iostream>
+using namespace std;
+
+class Human
+{
+  private:
+  	string name,gender;
+
+  public:
+  
+   Human() //ye automatic call hota hai jitne object honge utna //default constructor set default values
+  {
+      cout<<"Human created :Default value constructor";
+      name="unnamed";
+      gender="unknown";
+  }
+  
+  Human(string name , string gender)
+  {
+      cout<<"\nHuman created :parametrized value constructor";
+      this->name=name;
+      this->gender=gender;
+  }
+  
+   Human(Human &obj) // copy constructor - reference to obj created//set parameters to values already set in passes object 
+                         // makes a copy /makes duplicate of obj
+  {
+      cout<<"\nHuman created :copy value constructor";
+      this->name=obj.name;
+      this->gender=obj.gender;
+  }
+  void setHuman(string n ,string g)
+  {
+     name=n;
+	 gender=g;
+  }
+  
+  void displayHuman()
+  {
+  	cout<<"\nhi i am a "<<gender<<" called "<<name;
+  }
+};
+
+int main()
+{
+	Human h1;//object of classs human defaul constructor called
+	h1.displayHuman();
+	h1.setHuman("amar","male");//set
+	h1.displayHuman();//displayHuman  // default 
+    Human h2("abc","male");
+	h2.displayHuman();//parametrized 
+	 Human h3(h1);
+	h3.displayHuman();// copy 
+	
+}
+
+/*********  Destructor ******************/
+
+
+#include <iostream>
+using namespace std;
+class Human
+{
+  private:
+  	string name,gender;
+
+  public:
+  
+ Human(string name , string gender)
+  {
+      cout<<"\nHuman created :parametrized value constructor";
+      this->name=name;
+      this->gender=gender;
+  }
+  void setHuman(string n ,string g)
+  {
+     name=n;
+	 gender=g;
+  }
+  void displayHuman()
+  {
+  	cout<<"\nhi i am a "<<gender<<" called "<<name;
+  }
+
+  ~Human()
+  {
+      cout<<"\nRIP" <<" "<<name<<" "<<"finish";
+  }
+};
+int main()
+{
+	Human h1("amar","male");
+	
+	h1.displayHuman();//displayHuman
+	
+    Human h2("superman","male");
+    
+	h2.displayHuman();
+	
+}
+ /***************  static using scope resolution ***************/
+
+#include <iostream>
+using namespace std;
+
+
+class Human
+{
+  private:
+  	string name,gender;
+  	
+
+  public:
+  
+  static int population;
+  
+ Human(string name , string gender)
+  {
+     // cout<<"\nHuman created :parametrized value constructor";
+      this->name=name;
+      this->gender=gender;
+      population++;
+    cout<<"\nHuman created :total population : "<<population;
+
+  }
+  void setHuman(string n ,string g)
+  {
+     name=n;
+	 gender=g;
+  }
+  void displayHuman()
+  {
+  	cout<<"\nhi i am a "<<gender<<" called "<<name;
+  }
+  ~Human()
+  {
+      cout<<"\nRIP" <<" "<<name<<" "<<"finish";
+  }
+  
+  //ststic function can only access static data 
+ static void population_display()
+  {
+      cout<<"\ntotal population :"<< population;
+  }
+  
+};
+
+int Human::population=0;  // show in gloabal area using scope resolution 
+
+int main()
+{
+	Human h1("amar","male");
+	
+//	h1.displayHuman();//displayHuman
+	
+    Human h2("superman","male");
+    
+//	h2.displayHuman();
+	
+	Human h3("hulk","male");
+    
+//	h3.displayHuman();
+/*h1.population_display();
+h2.population_display();
+h3.population_display();*/
+	
+	
+	Human::population_display(); // access using class direct 
+	
+	
+}
+
+/*********  static menbership - using uniquessness */*********************/
+
+#include <iostream>
+using namespace std;
+
+
+class Human
+{
+  private:
+  	string name,gender;
+  	int ACN;
+
+  public:
+  static int generated_no;
+  static int population;
+  
+ Human(string name , string gender)
+  {
+     // cout<<"\nHuman created :parametrized value constructor";
+      this->name=name;
+      this->gender=gender;
+      generated_no++;
+      ACN=generated_no;
+    cout<<"\nHuman created :generated_no : "<<name <<"create ACN : "<<ACN;
+
+  }
+  void setHuman(string n ,string g)
+  {
+     name=n;
+	 gender=g;
+  }
+  void displayHuman()
+  {
+  	cout<<"\nhi i am a "<<gender<<" called "<<name;
+  }
+  ~Human()
+  {
+      cout<<"\nRIP" <<" "<<name<<" "<<"finish";
+  }
+  
+  //ststic function can only access static data 
+ static void ACN_display()
+  {
+      cout<<"\ntotal ACN distrubuted  :"<< generated_no-202300;
+  }
+  
+};
+
+int Human::generated_no=202300;  // show in gloabal area using scope resolution 
+
+int main()
+{
+	Human h1("amar","male");
+	Human h2("superman","male");
+	Human h3("hulk","male");
+    Human h4("xyz","female");
+
+	
+	
+	Human::ACN_display(); // access using class direct 
+	
+	
+}
+
+o/p
+
+
+
+Human created :generated_no : amarcreate ACN : 202301
+Human created :generated_no : supermancreate ACN : 202302
+Human created :generated_no : hulkcreate ACN : 202303
+Human created :generated_no : xyzcreate ACN : 202304
+total ACN distrubuted  :4
+RIP xyz finish
+RIP hulk finish
+RIP superman finish
+RIP amar finish
+
+
+
+
+
+/**************** inheritance   ************************/
+
+#include <iostream>
+using namespace std;
+class Human//base--super---gives properties
+{
+	private:
+	
+		string name,gender;
+		
+	public:
+	
+		void setHuman(string n,string g)
+	    	{
+	    		name=n;
+	    		gender=g;
+	    		cout<<"\nHuman:SetHuman activated";
+			}
+			
+		void displayHuman()
+		{
+			cout<<"you are: "<<gender<<" called "<<name;
+			cout<<"\nHuman:displayHuman activated";
+		}
+};
+
+class Student:public Human//derrived--sub class
+{
+	private:
+	
+		string degree;
+		
+	public:
+	
+		void setDegree(string d)
+		{
+			degree=d;
+			cout<<"\nSetDegree:Student activated:";
+		}
+		
+		void displayinfo()
+		{
+			cout<<"\nStudent:Degree is: "<<degree;
+		}
+};
+
+int main()
+
+{
+  Student s;//object of Sub Class---setdegree+display info
+  s.setHuman("amar","male");//superclass method
+  s.setDegree("Phd");//local
+  s.displayHuman();	//inherited
+  s.displayinfo();	//local
+
+	return 0;
+}
+
+//data private method public 
+
+/************** Override **************/
+
+#include <iostream>
+using namespace std;
+class Parent{
+    public:
+    void welcome()
+    {
+        cout<<"\nParent : A is very good morning how do you do ";
+    }
+    void eat()
+    {
+       cout<<"\nParent: bhaji chapati";    
+    }
+};
+class Child: public Parent{
+    public:
+     void eat()
+     {
+         cout<<"\nchild:pizza";
+     }
+};
+
+int main()
+{
+    Child obj;
+    obj.welcome();
+    obj.eat();
+    Parent p;
+    p.welcome();
+    p.eat();
+    
+}
+
+/**************** inheritance in constructor - multilevel **************/
+
+#include <iostream>
+using namespace std;
+class Human
+{
+  public:
+  	Human()
+  	{
+  		cout<<"\nHi i m constructor from human";
+	}
+};
+
+class Education:public Human
+{
+  public:
+  	Education()
+  	{
+  		cout<<"\nEducation: Hi i m constructor";
+	}
+};
+
+class Job:public Education
+{
+	public:
+	   Job()
+	   {
+	   	cout<<"\nJob: here constructor called";
+	   }
+
+};
+int main()
+{
+	Job j;
+}
+
+Hi i m constructor from human
+Education: Hi i m constructor
+Job: here constructor called
+
+
+
+/*************** hierachical inheritance ******************/
+
+#include <iostream>
+using namespace std;
+class Human
+{ private:
+	string name;
+  public:
+  	Human(string n)
+  	{
+  		cout<<"\nHi i m constructor from human";
+  		name=n;
+  		cout<<"\nName set to: "<<name<<" by constructor:Human";
+	}
+};
+
+class Education:public Human
+{
+	private:
+		string degree;
+
+  public:
+  	Education(string n,string d):Human(n)
+  	{
+  		cout<<"\nHi i m constructor from Education";
+  		degree=d;
+  		cout<<"\nDegree set to: "<<degree<<" by constructor:Education";
+	}
+};
+
+class Job:public Education
+{
+	private:
+		string job;
+	public:
+	   //contructor(parameters):constructor_super_class(parameters)
+	   Job(string n,string d,string j):Education(n,d)
+	   {
+	   	cout<<"\nHi i m constructor from Job";
+  		job=j;
+  		cout<<"\nJob set to: "<<job<<" by constructor:Job";
+	   }
+
+};
+int main()
+{
+	Job j("Amar","Phd","Trainer");
+}
+
+
+Hi i m constructor from human
+Name set to: Amar by constructor:Human
+Hi i m constructor from Education
+Degree set to: Phd by constructor:Education
+Hi i m constructor from Job
+Job set to: Trainer by constructor:Job
+
+
+/*********** Multiple inheritance *************/
+
+#include <iostream>
+using namespace std;
+class Super1
+{ 
+    public:
+	string name;
+  public:
+  	void my1()
+  	{
+  	    cout<<"\nmy from super 1 ";
+  	}
+};
+
+class Super2
+{ 
+    public:
+	string name;
+  public:
+  	void my2()
+  	{
+  	    cout<<"\nmy from super 2 ";
+  	}
+};
+
+class Derived : public Super1,public Super2
+{ 
+    public:
+	string name;
+  public:
+  	void my3()
+  	{
+  	    cout<<"\nmy from super 3 ";
+  	}
+};
+
+
+int main()
+{
+	Derived obj;
+	obj.my1();
+	obj.my2();
+	obj.my3();
+
+}
+
+my from super 1 
+my from super 2 
+my from super 3
+
+/************  For ambiguity resolve using scope resolution - multiple inheritance *****************/
+
+/*********** abstract class virtual ************/
+
+#include <iostream>
+using namespace std;
+class Human //abstract class
+{
+    private:
+    string name;
+    public:
+    virtual void education()=0; //pure virtual method must override
+    virtual void live()//can be override 
+    {
+        cout<<"\nHuman live";
+    }
+};
+class Education:public Human
+{
+    private:
+    string degree;
+    
+    public:
+    void education()
+    {
+        cout<<"Education done good";
+    }
+    
+};
+int main()
+{
+    Education e;
+    e.education();
+    e.live();
+}
+
+Education done good
+Human live
+
+/************ virtual base class ************/
+
+#include <iostream>
+using namespace std;
+class A{
+    public:
+    A()
+    {
+        cout<<"\nconstructor A is called ";
+    }
+    
+};
+class X:public A
+
+{
+    public:
+    X()
+    {
+        cout<<"\nconstructor X is called ";
+    }
+    
+};
+class Y:public A
+{
+    public:
+    Y()
+    {
+        cout<<"\nConstructor of Y called";
+    }
+    
+};
+
+class B:public X,public Y
+{
+    public:
+    B()
+    {
+        cout<<"\nConstructor of B called";
+    }
+};
+
+int main()
+{
+    B objb;
+}
+
+
+constructor A is called 
+constructor X is called 
+constructor A is called 
+Constructor of Y called
+Constructor of B called
+
+/************  solution of diamond problem in virtuaal base class *************/
+
+#include <iostream>
+using namespace std;
+class A{
+    public:
+    A()
+    {
+        cout<<"\nconstructor A is called ";
+    }
+    
+};
+class X:virtual public A
+
+{
+    public:
+    X()
+    {
+        cout<<"\nconstructor X is called ";
+    }
+    
+};
+class Y:virtual public A
+{
+    public:
+    Y()
+    {
+        cout<<"\nConstructor of Y called";
+    }
+    
+};
+
+class B:public X,public Y
+{
+    public:
+    B()
+    {
+        cout<<"\nConstructor of B called";
+    }
+};
+
+int main()
+{
+    B objb;
+}
+
+
+constructor A is called 
+constructor X is called 
+Constructor of Y called
+Constructor of B called
+
+
+/*************** abstract class example :-class shape that has virtual method print area() use circle and rectangle to inherit and override print area ***************/ 
+
+#include <iostream>
+using namespace std;
+class Shape//abstract class
+{
+  public:
+  	virtual void printArea()=0;//pure virtual function
+  //	virtual void set_data(float); //override signature should match ... datatype  //you can give multiple function depends on signature 
+ // virtual void setP(int,int);
+};
+
+class Circle: public Shape
+{
+	private:
+    float r;
+
+  public:
+  	void setR(float r)
+  	{
+  		this->r=r;
+	}
+
+  	void printArea()
+  	{
+  		cout<<"\nArea of Circle is:"<<(3.14*r*r);
+	  }
+};
+class Rectangle: public Shape
+{
+	private:
+    int l;
+    int b;
+
+  public:
+  	void setP(int l,int b)
+  	{
+  		this->l=l;
+  		this->b=b;
+	}
+
+  	void printArea()
+  	{
+  		cout<<"\nArea of rectangle is:"<<(l*b);
+	  }
+};
+
+
+int main()
+{
+  Circle objc;
+  objc.setR(2.5);
+  objc.printArea();
+ Rectangle obj;
+  obj.setP(2,2);
+  obj.printArea();
+}
+
+
+Area of Circle is:19.625
+Area of rectangle is:4
+
+
+
+/********** friend function - private la access krto to **********/
+
+#include <iostream>
+
+using namespace std;
+
+
+class X
+{
+    private:
+    
+    int datax;
+    
+    public:
+       void setX(int data)
+       {
+           datax=data;
+       }
+       friend void display(X obj);//prototype
+};
+
+void display(X obj)
+{
+    cout<<"\ndatax is"<<obj.datax;
+}
+int main()
+{
+    X objx;
+    objx.setX(1200);
+    display(objx);
+}
+
+
+/*********  friend feet and inches convert into cm **********/
+#include <iostream>
+using namespace std;
+//use this to print answer in cm from both
+//forward decleration
+class Feet;
+class Inches
+{
+
+	private:
+		float inches;
+	public:
+		void setInches(int i)
+		{
+			inches=i;
+		}
+	
+		friend void display_for_all(Feet f,Inches i);
+};
+
+class Feet
+{
+	private:
+		float feet;
+	public:
+		void setFeet(int f)
+		{
+			feet=f;
+		}
+	    friend void display_for_all(Feet f,Inches i);
+};
+void display_for_all(Feet f,Inches i)
+{
+	cout<<"\nFrom friend\nFeet is: "<<f.feet<<"\nInches: "<<i.inches;
+	cout<<"\nFeet and inches converted into cm "<<(f.feet*12*2.5)+(i.inches*2.5);
+}
+/*
+void display_for_all(Feet f,Inches i)
+{
+    float a ,b;
+	cout<<"\nFrom friend\nFeet is: "<<f.feet<<"\nInches: "<<i.inches;
+	
+	a=f.feet*12;
+	cout<<"\na is "<<a;
+	b=a+i.inches;
+	cout<<"\nb is "<<b;
+	cout<<"\nFeet and inches converted into cm "<<(b)*2.54;
+//	cout<<"\nFeet and inches converted into cm "<<((float)f.feet*12*2.54)+((float)i.inches*2.54);
+}*/
+int main()
+{
+	Feet f;Inches i;
+	f.setFeet(6);
+	i.setInches(3);
+    display_for_all(f,i);
+
+	return 0;
+}
+
+/********* complex number *************/
+
+#include <iostream>
+using namespace std;
+
+// operator overloading in compile time polymorphism
+// syntax : <return type> operator <symbol>(<parameter list>)
+//1.friend function  2.member method/built in method
+
+
+class Complex
+{
+    private:
+    
+    float r ,i;
+    
+    public:
+    void setComplex(float r,float i)
+    {
+        this->r=r;
+        this->i=i;
+    }
+    void displayComplex()
+    {
+        cout<<"\n"<<r<<"+"<<i<<"i";
+    }
+   // friend Complex operator+(Complex no1,Complex no2);
+    
+
+
+  
+   Complex operator-(Complex no2)  //n01.operator -(no2)
+   {
+    Complex t;
+    t.r=r-no2.r; //no1 is calling it hence direct access r and i 
+    t.i=i-no2.i; //no2 is pass hence no2.i no2.r
+    return(t);
+   }
+   friend Complex operator+(Complex no1,Complex no2);
+    
+   
+};
+ Complex operator+(Complex no1,Complex no2)
+   {
+    Complex t;
+    t.r=no1.r+no2.r;
+    t.i=no1.i+no2.i;
+    return(t);
+    
+   }
+int main()
+{
+    Complex n1,n2,n3;
+    n1.setComplex(4,3);
+    n2.setComplex(3,7);
+    
+    n3=n1+n2; // n3=operator +(n1,n2)
+    cout<<"Adding .......";
+    n1.displayComplex();
+    n2.displayComplex();
+    n3.displayComplex();
+    
+    n3=n1-n2;   //n1.operator-(n2) ... n1 is calling and n2 is passed using dot
+    cout<<"\nSubtracting .............";
+    n1.displayComplex();
+    n2.displayComplex();
+    n3.displayComplex();
+}
+
+
+/************ calculate time *************/
+
+step 1:
+
+#include <iostream>
+using namespace std;
+
+class Time
+{ 
+    private:
+      int h,m,s;
+    
+    public:
+      void setTime(int h,int m , int s)
+      {
+          this->h=h;
+          this->m=m;
+          this->s=s;
+      }
+    
+    void displayTime()
+      {
+        cout<<"\n Time is "<<h<<" : "<<m <<" : "<<s;
+      }
+    
+    
+};
+int main()
+{
+    Time t1,t2;
+    t1.setTime(5,30,35);
+    t2.setTime(3,35,50);
+    t1.displayTime();
+    t2.displayTime();
+}
+
+step 2:
+
+#include <iostream>
+using namespace std;
+
+class Time
+{ 
+    private:
+      int h,m,s;
+    
+    public:
+      void setTime(int h,int m , int s)
+      {
+          this->h=h;
+          this->m=m;
+          this->s=s;
+      }
+    
+    void displayTime()
+      {
+        cout<<"\n Time is "<<h<<" : "<<m <<" : "<<s;
+      }
+    friend Time operator+(Time t1,Time t2); 
+    
+    
+};
+
+Time operator+(Time t1,Time t2)
+{
+    Time x;
+    x.h=t1.h+t2.h;
+    x.m=t1.m+t2.m;
+    x.s=t1.s+t2.s;
+    return(x);
+    
+}
+int main()
+{
+    Time t1,t2;
+    t1.setTime(5,30,35);
+    t2.setTime(3,35,50);
+    t1.displayTime();
+    t2.displayTime();
+}
+
+step 3:
+
+#include <iostream>
+using namespace std;
+
+class Time
+{ 
+    private:
+      int h,m,s;
+    
+    public:
+      void setTime(int h,int m , int s)
+      {
+          this->h=h;
+          this->m=m;
+          this->s=s;
+      }
+    
+    void displayTime()
+      {
+        cout<<"\n Time is "<<h<<" : "<<m <<" : "<<s;
+      }
+    friend Time operator+(Time t1,Time t2); 
+    
+    
+};
+
+Time operator+(Time t1,Time t2)
+{
+    Time x;
+    x.h=t1.h+t2.h;
+    x.m=t1.m+t2.m;
+    x.s=t1.s+t2.s;
+    
+    
+    x.m=x.m+x.s/60; //+1
+    x.s=x.s%60;
+    x.h=x.h+x.m/60;  //
+    x.m=x.m%60;
+    
+    
+    return(x);
+    
+}
+int main()
+{
+    Time t1,t2,t3;
+    t1.setTime(5,30,35);
+    t2.setTime(3,35,50);
+    t3=t1+t2;
+    t1.displayTime();
+    t2.displayTime();
+    t3.displayTime();
+}
+
+ Time is 5 : 30 : 35
+ Time is 3 : 35 : 50
+ Time is 9 : 6 : 25
+
+/**********************     student management system          ***********************/
+
+#include <iostream>
+using namespace std;
+
+class Student
+{
+
+    private:
+		string name,gender;
+		int rollno;
+	public:
+		static int number;
+		void registers(string n,string g)
+		{
+			name=n;
+			gender=g;
+			rollno=++number;//assigning a value from static to instance member  // number is given but each object has its own rollno
+			cout<<"\nCongrats you are registred and your roll no is:"<<rollno;
+
+		}
+		int get_rollno()
+		{
+			return rollno;
+		}
+		void displayStudent()
+		{
+			cout<<"\nRollno:"<<rollno<<"\tName:"<<name<<"\tGender:"<<gender;
+		}
+ static void total_count_is()
+ {
+ 	//cout<<"\ncalled by Roll no:"<<rollno;//can not access as can only access static data
+ 	cout<<"\nTotal students till now are:"<<number-202300;
+	 }
+};
+int Student::number=202300;
+//static declaration outside class is must as global access
+
+int main()
+{
+	int ch,index=0,r,flag;
+	Student s[100];
+	string n,g;
+	do
+	{
+		cout<<"\n1.Register\n2.Search\n3.Print all\n0.Exit\n:";
+		cin>>ch;
+		switch(ch)
+		{
+			case 1:
+					cout<<"\nEnter name and gender:\n";
+					cin>>n>>g;
+					s[index].registers(n,g);
+					index++;
+					break;
+			case 2:
+					cout<<"\nEnter rollno\n";
+					cin>>r;
+					flag=0;
+					for(int i=0;i<index;i++)
+					 {
+					 	if(r==s[i].get_rollno())
+					 		{
+					 		 cout<<"Found:";
+							 s[i].displayStudent();
+							 flag=1;//found
+							 break;
+						    }
+			 		 }
+					 if(flag==0)
+					  cout<<"Not found";
+					break;
+			case 0:
+					cout<<"\nExit...";
+					break;
+		 	case 3:
+		 		  for(int i=0;i<index;i++)
+		 		  	s[i].displayStudent();
+		 		  break;
+			default:
+					cout<<"Wrong options selected";
+					break;
+		}
+	}while(ch!=0);
+	return 0;
+}
+
+
+/*************  Bank management ceate account deposit done only ***********/
+
+#include <iostream>
+using namespace std;
+//Bank System
+class Account
+{
+  private:
+  	string holder_name;
+  	int acc_no;
+  	float balance;
+  	static int acc_generator;
+  public:
+	  void openaccount(string n,float a)
+	  {
+	   holder_name=n;
+	   balance=a;
+	   acc_no=++acc_generator;
+	   cout<<"\nCongrats "<<holder_name<<" your account number:"<<acc_no;
+	  }
+
+	  void displayAccount()
+	  {
+	    cout<<"\nAccount number:"<<acc_no<<"\t Name:"<<holder_name<<"\t Balance"<<balance;
+	  }
+	  void deposit(float a)
+	  {
+	  	if(a<0)
+	  	 cout<<"\nCan not have -ve number:";
+	  	else
+		  {
+		  	balance+=a;//update
+		  	cout<<"\nupdated";
+		  	displayAccount();
+		  }
+	  }
+
+	  int get_account_no()
+	  {
+	    return acc_no;
+	  }
+	  
+	  void withdraw(float a)
+	  {
+	      
+	  }
+      
+      void checkBalance(string n,float a)
+      {
+          
+      }
+};
+int Account::acc_generator=202300;
+int main()
+{
+	Account obja[10];
+	int ch,index=0,acn,flag;
+	float a;
+	string n;
+	do
+	{
+		cout<<"\n1.Register_Account\n2.Deposit\n3.Withdraw\n4.Check Balance\n0.Exit\n:";
+		cin>>ch;
+		switch(ch)
+		{
+			case 1:
+					cout<<"\nEnter name and amount:\n";
+					cin>>n>>a;
+					while(a<3000)
+					{
+						cout<<"please enter amount 3000+:";
+						cin>>a;
+					}
+					obja[index].openaccount(n,a);
+					index++;
+					obja[index-1].displayAccount();
+					break;
+    		case 2:
+					cout<<"\nEnter Account number:\n";
+					cin>>acn;
+					flag=0;
+					for(int i=0;i<index;i++)
+					 {
+					 	if(acn==obja[i].get_account_no())
+					 		{
+					 		 cout<<"Found:";
+					 		 cout<<"\nEnter amount:";
+					 		 cin>>a;
+							 obja[i].deposit(a);
+							 flag=1;//found
+							 break;
+						    }
+			 		 }
+					 if(flag==0)
+					  cout<<"\nAccount Not found";
+					break;
+			
+	/*	 	case 3:
+		 		  for(int i=0;i<index;i++)
+		 		  	s[i].displayStudent();
+		 		  break;*/
+		 		  
+		    case 0:
+					cout<<"\nExit...";
+					break;
+					
+			default:
+					cout<<"Wrong options selected";
+					break;
+		}
+	}while(ch!=0);
+	return 0;
+
+}
+
+
+/*************  pointer ****************/
+
+
+#include <iostream>
+using namespace std;
+class Animal
+{
+	public:
+	    virtual void sound()
+		{
+			cout<<"\nAnimal:hmmmmmmmm";
+		}
+		//virtual void play()=0;
+};
+
+class Dog:public Animal
+{
+	public:
+		void sound()
+		{
+			cout<<"\nDog:bow bow";
+		}
+	    void play()
+	    {
+	    	cout<<"\nDog:plays";
+		}
+};
+
+int main()
+{
+
+	Animal a;//2
+	Dog d;
+    Animal *p;//1
+	p=&a; //3 pointes to Animal
+	p->sound();
+	p=&d;//p pointes to Dog
+
+	p->sound();
+
+	return 0;
+}
+
+
+
+
+#include<iostream>
+using namespace std;
+#include<iomanip>
+int main()
+{
+    cout<<endl<< " XXXX "<<endl;
+    for(int i=1;i<=5;i++)
+    
+    {
+        cout<<endl<<"X"<<setw(5)<<"X"<<endl;
+    }
+    cout<<" XXXX ";
+    
+}
+
+
+ XXXX 
+
+X    X
+
+X    X
+
+X    X
+
+X    X
+
+X    X
+ XXXX 
+
+
+#include<iostream>
+using namespace std;
+#include<iomanip>
+int main()
+{
+   
+    for(int i=0;i<=5;i++)
+    
+    {
+        if(i<=0)
+        cout<<"X"<<endl;
+        else
+        cout<<endl<<"X"<<setw(i)<<"X"<<endl;
+    }
+    cout<<" XXXXXX ";
+    
+}
+X
+
+XX
+
+X X
+
+X  X
+
+X   X
+
+X    X
+ XXXXXX 
+
+
+/************* writing file ***************/
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+	string fname;
+    cout<<"\nEnter file name:";
+    cin>>fname;
+    // Create and open a text file
+    ofstream MyFile(fname+".txt");
+   //class    obj (file name paramenter)
+   // Write to the file
+    cout<<"Who are You ?";
+    string name;
+    cin>>name;
+    MyFile <<"\nName: "<<name;
+
+	  cout<<"\nWhere r u from ?";
+	  string native;
+	  cin>>native;
+	  MyFile <<"\nNative is : "<<native;
+
+	  string number;
+	  cout<<"Number for contact: ?";
+	  cin>>number;
+	  MyFile <<"\nContact  is : "<<number;
+
+	  // Close the file
+	  MyFile.close();
+	  cout<<"\nFile saved";
+}
+
+/************ reading file *************/
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+  // Create and open a text file
+  ifstream finput("my_data_new.txt");
+  string line;
+  // read line by line
+  while(getline(finput,line))
+  {
+  cout<<"\nLine is: "<<line;
+  }
+  // Close the file
+
+  finput.close();
+
+}
+
+/*************** count all file program - // read a file and count alphabets ,capital ,alpha ,digits ,symbol ,words , line 
+//string --- s --->s[i]---char
+//.length() to give data in a line 
+// read a line and then char by charcter count apha digits words and line **************/
+
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+	int wc=0,ac=0,dc=0,sc=0,lc=0;
+  // Create and open a text file
+  ifstream myFile("my_data.txt");
+  string line;
+  // read line by line
+  while(getline(myFile,line))
+  {
+  // cout<<"\n"<<line;
+   lc++;
+   for(int i=0;i<line.length();i++)
+    {
+    	if(line[i]==' ')
+    	   wc++;
+    	else if((line[i]>='a'&& line[i]<='z')||(line[i]>='A'&& line[i]<='Z'))
+    	   ac++;
+    	else if(line[i]>='0'&& line[i]<='9')
+    	   dc++;
+    	else
+    	   sc++;
+
+	}
+  }
+  cout<<"Words:"<<wc+lc<<" Alpha:"<<ac<<"  Digits:"<<dc<<" Symbols:"<<sc<<" Lines"<<lc;
+
+
+  // Close the file
+
+  myFile.close();
+
+}
+
+
+/*********** bank management system ************/
+
+#include <iostream>
+using namespace std;
+//Bank System
+class Account
+{
+  private:
+  	string holder_name;
+  	int acc_no;
+  	float balance;
+  	static int acc_generator;
+  public:
+	  void openaccount(string n,float a)
+	  {
+	   holder_name=n;
+	   balance=a;
+	   acc_no=++acc_generator;
+	   cout<<"\nCongrats "<<holder_name<<" your account number:"<<acc_no;
+	  }
+
+	  void displayAccount()
+	  {
+	    cout<<"\nAccount number:"<<acc_no<<"\t Name:"<<holder_name<<"\t Balance"<<balance;
+	  }
+	  void deposit(float a)
+	  {
+	  	if(a<0)
+	  	 cout<<"\nCan not have -ve number:";
+	  	else
+		  {
+		  	balance+=a;//update
+		  	cout<<"\nupdated";
+		  	displayAccount();
+		  }
+	  }
+
+	  int get_account_no()
+	  {
+	    return acc_no;
+	  }
+	  
+	  void withdraw(float a)
+	  {
+	      if(balance>=a && (balance-a)>=3000)
+		 {
+				 balance-=a;
+				cout<<"withdraw is successful . new balance is "<<balance;
+		}
+		else
+		 {
+				cout<<"withdraw failed , minimum balance "<<endl; 
+				
+		}
+	      
+	  }
+      
+      void checkBalance(string n,float a)
+      {
+          
+      }
+};
+int Account::acc_generator=202300;
+int main()
+{
+	Account obja[10];
+	int ch,index=0,acn,flag;
+	float a;
+	string n;
+	do
+	{
+		cout<<"\n1.Register_Account\n2.Deposit\n3.Withdraw\n4.Check Balance\n0.Exit\n:";
+		cin>>ch;
+		switch(ch)
+		{
+			case 1:
+					cout<<"\nEnter name and amount:\n";
+					cin>>n>>a;
+					while(a<3000)
+					{
+						cout<<"please enter amount 3000+:";
+						cin>>a;
+					}
+					obja[index].openaccount(n,a);
+					index++;
+					obja[index-1].displayAccount();
+					break;
+    		case 2:
+					cout<<"\nEnter Account number:\n";
+					cin>>acn;
+					flag=0;
+					for(int i=0;i<index;i++)
+					 {
+					 	if(acn==obja[i].get_account_no())
+					 		{
+					 		 cout<<"Found:";
+					 		 cout<<"\nEnter amount:";
+					 		 cin>>a;
+							 obja[i].deposit(a);
+							 flag=1;//found
+							 break;
+						    }
+			 		 }
+					 if(flag==0)
+					  cout<<"\nAccount Not found";
+					break;
+			
+		 	case 3:
+		 	cout<<"\nEnter Account number:\n";
+					cin>>acn;
+					flag=0;
+					for(int i=0;i<index;i++)
+					 {
+					 	if(acn==obja[i].get_account_no())
+					 		{
+					 		 cout<<"Found:";
+					 		 cout<<"\nEnter amount to withdraw :";
+					 		 cin>>a;
+					 		 
+							 obja[i].withdraw(a);
+							 flag=1;//found
+							 break;
+						    }
+			 		 }
+					 if(flag==0)
+					  cout<<"\nAccount Not found";
+					break;
+					
+				case 4:
+		         	cout<<"\nEnter Account number:\n";
+					cin>>acn;
+					
+					flag=0;
+					for(int i=0;i<index;i++)
+					 {
+					 	if(acn==obja[i].get_account_no())
+					 		{
+					 		 cout<<"Found:";
+					 		 obja[index].displayAccount();
+					 		 
+					 		 
+							 
+							 flag=1;//found
+							 break;
+						    }
+			 		 }
+					 if(flag==0)
+					  cout<<"\nAccount Not found";
+					break;
+		 		  
+		    case 0:
+					cout<<"\nExit...";
+					break;
+					
+			default:
+					cout<<"Wrong options selected";
+					break;
+		}
+	}while(ch!=0);
+	return 0;
+
+}
+
+
+/*********************************  namespace  ***************************************/
+
+// C++ program to illustrate the use
+// of namespace with same name of
+// function and variables
+/*Need of namespace:
+As the same name can’t be given to multiple variables, functions, classes, etc.
+in the same scope.
+So to overcome this situation namespace is introduced.*/
+#include <iostream>
+using namespace std;//allows us to use set of standard rules for naming and identifiers along with commands
+
+// Namespace n1
+namespace n1 {
+int x = 2;
+
+// Function to display the message
+// for namespace n1
+void fun()
+{
+	cout << "This is fun() of n1"
+		<< endl;
+}
+}
+
+// Namespace n2
+namespace n2 {
+
+int x = 5;
+
+// Function to display the message
+// for namespace n2
+void fun()
+{
+	cout << "This is fun() of n2"
+		<< endl;
+}
+}
+
+// Driver Code
+int main()
+{
+	// The methods and variables called
+	// using scope resolution(::)
+	cout << n1::x << endl;
+         //name space::identifier
+	// Function call
+	n1::fun();
+
+	cout << n2::x << endl;
+
+	// Function call;
+	n2::fun();
+
+	return 0;
+}
+
+
+
+/**************************** try->throw catch block  *****************************/
+
+#include <iostream>
+using namespace std;
+int main()
+{
+  try {
+	    int age ;
+	    cout<<"\nEnter Your Age:";
+	    cin>>age;
+	    if (age >= 18)
+		{
+	      cout << "Access granted - you are old enough.";
+	    }
+		else
+		{
+	      throw (age);//throw --->int/float/string/char *
+	      cout<<"\nalla re alla"; //will not be access 
+	    }
+	  }
+  catch (int myNum) //catch --->int/float/string/char *
+  {
+    cout << "Access denied - You must be at least 18 years old.\n";
+    cout << "Age is: " << myNum;
+  }
+  cout<<"\nnormal code runs";
+  return 0;
+}
+
+/* caatch(...)-global error 
+
+
+/****************** custom exception make any one for example   *******************************/
+
+
+/******************************************************************************
+/tum exception khud bna rahe ho way to creating exception sabse pehle inherit exception class 
+string.what()-what is method use to print data to override method what()
+*******************************************************************************/
+/* Q.create age exception that is raised if age is below error *******/
+
+
+#include <iostream>
+using namespace std;
+
+class AgeException : public exception 
+{
+    public:
+string message () {
+    return ("age exception due to -ve age");
+}
+   
+};
+
+int main() {
+    int age;
+    cout<<"\nEnter Your Age:";
+	    cin>>age;
+	    try
+	    {
+	        if(age<0)
+	        {
+	            throw AgeException();
+	        }
+	    }
+	    catch(AgeException a)
+	    {
+	        cout<<a.message();
+	    }
+}
+
+
+

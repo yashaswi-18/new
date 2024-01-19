@@ -1,0 +1,289 @@
+/*1.print given statement */
+
+/* The given statatement is:The c++ language is invented in 1998 Bjarane strorup*/
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    cout<<"The given statatement is:The c++ language is invented in 1998 Bjarane strorup"<<endl;
+    
+
+    return 0;
+}
+
+/*2.Declare & print variables*/
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a=10;
+    float b=3.14;
+    char c='l';
+    double m=9075;
+    long l=565421;
+    
+    cout<<"variable a value is:"<<a<<"\n";
+    cout<<"variable b value is:"<<b<<"\n";
+    cout<<"variable c value is:"<<c<<"\n";
+    cout<<"variable m value is:"<<m<<"\n";
+    cout<<"variable l value is:"<<l;
+    
+    return 0;
+}
+
+/*3.Find sum of numbers*/
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a,b , sum;
+    cout<<"Enter the two numbers a and b :-";
+    cin>>a>>b;
+    sum=a+b;
+    cout<<sum;
+    
+    
+    return 0;
+}
+
+/*4.Difference of two numbers*/
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a,b ,diff;
+    cout<<"Enter the two numbers a and b :-";
+    cin>>a>>b;
+    diff=a-b;
+    cout<<diff;
+    
+    
+    return 0;
+}
+
+/*6.Multiplication of two numbers*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a,b ,mul;
+    cout<<"Enter the two numbers a and b :-";
+    cin>>a>>b;
+    mul=a*b;
+    cout<<mul;
+    
+    return 0;
+}
+
+/*6.Division of two numbers*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a,b ,div;
+    cout<<"Enter the two numbers a and b :-";
+    cin>>a>>b;
+    div=a/b;
+    cout<<div;
+    
+    
+    return 0;
+}
+
+/7.Find last digit of number*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a,n;
+    cout<<"Enter any number a:-";
+    cin>>a;
+    a=a%10;
+    cout<<a;
+
+    return 0;
+}
+
+/*8.Add two digit of number*/
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,i,j,add;
+    cout<<"Enter any number n:-";
+    cin>>n;
+    i=(n/10);
+    j=n%10;
+    add=i+j;
+    cout<<add;
+
+    return 0;
+}
+
+
+/*9.sum of 3 digits of number*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,i,j,add,k;
+    cout<<"Enter any number n:-";
+    cin>>n;
+    k=n/100;
+    i=(n/10)%10;
+    j=n%10;
+    add=i+j+k;
+    cout<<add;
+
+    return 0;
+}
+
+/*10.sum of 4 digits of number*/
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,i,j,add,k,l;
+    cout<<"Enter any number n:-";
+    cin>>n;
+    l=n/1000;
+    k=(n/100)%10;
+    i=(n/10)%10;
+    j=n%10;
+    add=i+j+k+l;
+    cout<<add;
+
+    return 0;
+}
+
+/*11.swap using third variable*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a,b, temp;
+    cout<<"Enter two numbers a and b :-";
+    cin>>a >> b ;
+    temp=a;
+    a=b;
+    b=temp;
+    cout <<"After swapping numbers a: "<<a<<" and value of b:"<<b ;
+
+    return 0;
+}
+
+/* 12 .Swap without third variable*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a,b;
+    cout<<"Enter two numbers a and b :-";
+    cin>>a >> b ;
+    a=a+b;
+    b=a-b;
+    a=a-b;
+    cout <<"After swapping numbers a: "<<a<<" and value of b:"<<b ;
+
+    return 0;
+}
+
+
+/*13.Average of three numbers*/
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a,b,c,avg;
+    cout<<"Enter three numbers a and b and c  :-";
+    cin>>a >> b >>c  ;
+    avg=(a+b+c)/3;
+    cout <<"Average of three numbers :"<<avg ;
+
+    return 0;
+}
+
+
+
+/*14.Find total marks and percentage*/
+
+
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int s1,s2,s3,s4,s5, sum;
+    float total_marks;
+    float percentage;
+    cout<<"Enter the 5 subject marks:-";
+    cin>>s1>>s2>>s3>>s4>>s5;
+    
+    
+    total_marks=s1+s2+s3+s4+s5;
+    
+    percentage=(total_marks*100)/500;
+    
+    cout<<"total_marks is:"<<total_marks<<"\n"<<"percentage is:"<<percentage;
+    return 0;
+}
+
+
+
+/*15.Swap with biwise operator*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a,b;
+    cout<<"Enter three numbers a and b :-";
+    cin>>a >> b ;
+    a=a^b;
+    b=a^b;
+    a=a^b;
+    cout <<"After swapping numbers a: "<<a<<" and value of b:"<<b ;
+
+    return 0;
+}

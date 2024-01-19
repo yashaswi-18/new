@@ -1,0 +1,170 @@
+/*
+create class Bank:has name of holder,amount given when object creation,program should produce account number internally.
+code should be menu driven
+1.create account:
+   takes the name,amount------>if amount>3000 then only -->congrats your account created:2023XX
+2.withdraw:--->ask for account number----search if found--->take amount--->iff balance-given amount> 3000 then only do transaction
+3.deposit:--->ask for account number----search if found--->take amount--->iff amount>0 then amount+balance
+4.Check balance---->ask for account number---account number,name,balance
+
+*/
+
+#include <iostream>
+using namespace std;
+//Bank System
+class Account
+{
+  private:
+  	string holder_name;
+  	int acc_no;
+  	float balance;
+  	static int acc_generator;
+  public:
+	  void openaccount(string n,float a)
+	  {
+	   holder_name=n;
+	   balance=a;
+	   acc_no=++acc_generator;
+	   cout<<"\nCongrats "<<holder_name<<" your account number:"<<acc_no<<endl;
+	  }
+
+	  void displayAccount()
+	  {
+	    cout<<"\nAccount number:"<<acc_no<<"\t Name:"<<holder_name<<"\t Balance :"<<balance<<endl;
+	  }
+	  void deposit(float a)
+	  {
+	  	if(a<0)
+	  	 cout<<"\nCan not have -ve number:"<<endl;
+	  	else
+		  {
+		  	balance+=a;//update
+		  	cout<<"\nupdated";
+		  	displayAccount();
+		  }
+	  }
+
+	  int get_account_no()
+	  {
+	    return acc_no;
+	  }
+	  
+	  void withdraw(float a)
+	  {
+	      if(balance>=a && (balance-a)>=3000)
+		 {
+				 balance-=a;
+				cout<<"withdraw is successful . new balance is "<<balance<<endl;
+		}
+		else
+		 {
+				cout<<"withdraw failed , minimum balance "<<endl; 
+				
+		}
+	      
+	  }
+};
+int Account::acc_generator=202300;
+
+int main()
+{
+	Account obja[10];
+	int ch,index=0,acn,flag;
+	float a;
+	string n;
+	do
+	{
+		cout<<"\n1.Register_Account\n2.Deposit\n3.Withdraw\n4.Check Balance\n0.Exit\n:";
+		cin>>ch;
+		switch(ch)
+		{
+			case 1:
+					cout<<"\nEnter name \n"; 
+					cin>>n;
+                    cout<<"Enter amount:\n";
+                    cin>>a;
+					while(a<3000)
+					{
+						cout<<"please enter amount 3000+:";
+						cin>>a;
+					}
+					obja[index].openaccount(n,a);
+					index++;
+					obja[index-1].displayAccount();
+					break;
+    		case 2:
+					cout<<"\nEnter Account number:\n";
+					cin>>acn;
+					flag=0;
+					for(int i=0;i<index;i++)
+					 {
+					 	if(acn==obja[i].get_account_no())
+					 		{
+					 		 cout<<"Found:";
+					 		 cout<<"\nEnter amount:\n";
+					 		 cin>>a;
+							 obja[i].deposit(a);
+							 flag=1;//found
+							 break;
+						    }
+			 		 }
+					 if(flag==0)
+					  cout<<"\nAccount Not found \n";
+					break;
+			
+		 	case 3:
+		 	cout<<"\nEnter Account number:\n";
+					cin>>acn;
+					flag=0;
+					for(int i=0;i<index;i++)
+					 {
+					 	if(acn==obja[i].get_account_no())
+					 		{
+					 		 cout<<"Found:";
+					 		 cout<<"\nEnter amount to withdraw \n:";
+					 		 cin>>a;
+					 		 
+							 obja[i].withdraw(a);
+							 flag=1;//found
+							 break;
+						    }
+			 		 }
+					 if(flag==0)
+					  cout<<"\nAccount Not found\n";
+					break;
+					
+				case 4:
+		         	cout<<"\nEnter Account number:\n";
+					cin>>acn;
+					
+					flag=0;
+					for(int i=0;i<index;i++)
+					 {
+					 	if(acn==obja[i].get_account_no())
+					 		{
+					 		 cout<<"Found:";
+					 		 obja[i].displayAccount();
+					 		 flag=1;//found
+							 break;
+						    }
+			 		 }
+					 if(flag==0)
+					  cout<<"\nAccount Not found\n";
+					break;
+		 		  
+		    case 0:
+					cout<<"\nExit...";
+					break;
+					
+			default:
+					cout<<"Wrong options selected\n";
+					break;
+		}
+	}while(ch!=0);
+	return 0;
+
+}
+
+
+
+
